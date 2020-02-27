@@ -8,7 +8,7 @@ package bol_20;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import libros.*;
-
+import validar.pedirDato;
 /**
  *
  * @author Josemolamazo
@@ -26,27 +26,30 @@ public class Bol_20 {
         
         int opcion;
         do{
-            opcion = Integer.parseInt(JOptionPane.showInputDialog(" *** MENU *** "));
+            opcion = Integer.parseInt(JOptionPane.showInputDialog(" *** MENU *** \n 1---> Engadir libro \n 2---> Mostrar libros \n"
+                    + " 3---> Vender libro(s) \n 4---> Mostrar por orde alfabético \n 5---> Dar de baixa \n 6---> Buscar por titulo \n "
+                    + "7---> Sair"));
             
             switch(opcion){
-                case 1: libreria.crearLista(lista);
+                
+                case 1: libreria.engadir(lista);
                 break;
-                case 2: libreria.engadir(lista);
+                case 2: libreria.verLibros(lista);
                 break;
-                case 3: libreria.verLibros(lista);
+                case 3: libreria.vender(lista, pedirDato.pedirMensaxe("isbn: "), pedirDato.pedirIntSMS("Cantas unidades? "));
                 break;
-                case 4: libreria.vender(lista);
+                case 4: libreria.amosarOrdeado(lista);
                 break;
-                case 5: libreria.amosarOrdeado(lista);
+                case 5: libreria.darBaixa(lista);
                 break;
-                case 6: libreria.darBaixa(lista);
+                case 6: libreria.verLibro(lista);
                 break;
-                case 7: libreria.verLibro(lista);
-                break;
-                case 8: libreria.sair();
+                case 7: libreria.sair();
             }
-        }while(opcion !=9);
+        }while(opcion !=8);
     }
+    
+    
     
     
 }

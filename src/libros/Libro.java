@@ -9,7 +9,7 @@ package libros;
  *
  * @author Josemolamazo
  */
-public class Libro {
+public class Libro implements Comparable<Libro>{
 
     private String titulo;
     private String autor;
@@ -72,6 +72,12 @@ public class Libro {
     @Override
     public String toString() {
         return "Libro{" + "titulo=" + titulo + ", autor=" + autor + ", ISBN=" + ISBN + ", prezo=" + prezo + ", unidades=" + unidades + '}';
+    }
+
+
+    @Override
+    public int compareTo(Libro t) {
+        return titulo.compareToIgnoreCase(t.titulo);
     }
 
 
